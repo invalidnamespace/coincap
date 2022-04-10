@@ -932,7 +932,7 @@ app.adSessionNotifier = function () {
     a({url: o.adSessionNotifier.callbackUrl, method: "post", data: {adSessionId: s, adbd: r}, type: "jsonp", success: e, timeout: 1e4, error: i});
   }, successCallback: e, errorCallback: i};
 }();
-app.adsBlockerDetector = function (e) {
+/*app.adsBlockerDetector = function (e) {
   "use strict";
   var t;
   null !== (t = document.URL.match(/force-adblock=([0-9]+)/)) && void 0 !== t[1] && "1" === t[1] || "undefined" == typeof fuckAdBlock ? e() : (fuckAdBlock.onDetected(function () {
@@ -950,7 +950,7 @@ app.adsBlockerDetector = function (e) {
     if (i = true, e.intermediate.adsBlockerPolicy === r) return void setTimeout(n, 2e3);
     e.intermediate.adsBlockerPolicy === l && document.getElementById("disable_blocker_warning").classList.add("show"), e.intermediate.adsBlockerPolicy === d || n();
   }};
-}(app.options);
+}(app.options);*/
 app.advertisement = function (e, t) {
   "use strict";
   function n() {
