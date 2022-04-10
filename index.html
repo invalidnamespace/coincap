@@ -96,7 +96,6 @@ app.intermediatePage = app.intermediatePage || {}, async function () {
       await sleep(1500)
       reqwest({url: n + "/viewed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), destination_url: t})});
       //reqwest({url: n + "/captcha-displayed", method: "POST", data: JSON.stringify({display_id: "DIPPSLAY ID", timestamp: i()})});
-    };
     }();
     </script>
   </body>
