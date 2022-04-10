@@ -93,8 +93,8 @@ app.intermediatePage = app.intermediatePage || {}, async function () {
       reqwest({url: "https://analytics.shorte.st/displayed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), language: "en-US",
       publisher_id: app.options.userId, publisher_api_token: app.options.publisherApiToken, interstitial_type: "page", referrer_url: "", shortest_url: "http://destyy.com/ea1LZN", shortest_url_hash: "ea1LZN",
       var1: "", var2: "", var3: "", var4: "", var5: ""})});
-      await sleep(1500)
-      reqwest({url: n + "/viewed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), destination_url: t})});
+      await sleep(7000)
+      reqwest({url: "https://analytics.shorte.st/viewed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), destination_url: t})});
       //reqwest({url: n + "/captcha-displayed", method: "POST", data: JSON.stringify({display_id: "DIPPSLAY ID", timestamp: i()})});
     }();
     </script>
