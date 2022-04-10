@@ -77,27 +77,27 @@
     };
     </script>
     <script>
-     app.intermediatePage = app.intermediatePage || {}, function () {
-  function i() {
-    var t = (r = new Date).getDate(), e = r.getMonth() + 1, a = r.getFullYear(), i = r.getHours(), n = r.getMinutes(), r = r.getSeconds();
-    return a.toString() + "-" + e.toString() + "-" + t.toString() + " " + i.toString() + ":" + n.toString() + ":" + r.toString();
-  }
-  app.intermediatePage.shortestAnalytics = {displayId: Math.random().toString(36).substring(2) + (new Date).getTime().toString(36)};
-  var n = "https://analytics.shorte.st", t = (t = app.intermediatePage.shortestAnalytics.displayId, reqwest({url: n + "/displayed", method: "POST", data: JSON.stringify({display_id: t, timestamp: i(), language: navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage || "", publisher_id: app.options.userId, publisher_api_token: app.options.publisherApiToken, interstitial_type: "page", referrer_url: document.referrer || "", shortest_url: window.location.href, shortest_url_hash: "r" === (t = window.location.pathname.split("/")[1] || "") ? "" : t, var1: "", var2: "", var3: "", var4: "", var5: ""})}), bean.on(window, "adsessionfinished", function (t) {
-    var e;
-    e = app.intermediatePage.shortestAnalytics.displayId, t = t, reqwest({url: n + "/viewed", method: "POST", data: JSON.stringify({display_id: e, timestamp: i(), destination_url: t})});
-  }), document.getElementById(app.options.intermediate.skipButtonId));
-  bean.on(t, "click", function (t) {
-    var e, a = {x: t.clientX, y: t.clientY};
-    e = app.intermediatePage.shortestAnalytics.displayId, a = a, t = function (t) {
-      for (var e = []; t;) e.unshift(t.tagName), t = t.parentElement;
-      return e.join(" > ");
-    }(t.target), reqwest({url: n + "/clicked", method: "POST", data: JSON.stringify({display_id: e, timestamp: i(), click_point_x: a.x || -1, click_point_y: a.y || -1, clicked_element_selector: t})});
-  }), bean.one(window, app.intermediatePage.captchaWasDisplayedEventName, function () {
-    var t;
-    t = app.intermediatePage.shortestAnalytics.displayId, reqwest({url: n + "/captcha-displayed", method: "POST", data: JSON.stringify({display_id: t, timestamp: i()})});
+     function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
   });
-}();
+}
+
+app.intermediatePage = app.intermediatePage || {}, async function () {
+      function i() {
+        var t = (r = new Date).getDate(), e = r.getMonth() + 1, a = r.getFullYear(), i = r.getHours(), n = r.getMinutes(), r = r.getSeconds();
+        return a.toString() + "-" + e.toString() + "-" + t.toString() + " " + i.toString() + ":" + n.toString() + ":" + r.toString();
+      }
+      app.intermediatePage.shortestAnalytics = {displayId: Math.random().toString(36).substring(2) + (new Date).getTime().toString(36)};
+      var dispId = app.intermediatePage.shortestAnalytics
+      reqwest({url: "https://analytics.shorte.st/displayed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), language: "en-US",
+      publisher_id: app.options.userId, publisher_api_token: app.options.publisherApiToken, interstitial_type: "page", referrer_url: "", shortest_url: "http://destyy.com/ea1LZN", shortest_url_hash: "ea1LZN",
+      var1: "", var2: "", var3: "", var4: "", var5: ""})});
+      await sleep(1500)
+      reqwest({url: n + "/viewed", method: "POST", data: JSON.stringify({display_id: dispId, timestamp: i(), destination_url: t})});
+      //reqwest({url: n + "/captcha-displayed", method: "POST", data: JSON.stringify({display_id: "DIPPSLAY ID", timestamp: i()})});
+    });
+    }();
     </script>
   </body>
 </html>
