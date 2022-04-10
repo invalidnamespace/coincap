@@ -2,6 +2,78 @@
   <head>
   </head>
   <body>
+    <script>
+    var app = {};
+    app.options = {
+        userId: 11543709,
+        publisherApiToken: "9b31fd75b71f25351085924eb5ace793",
+        framekiller: true,
+        timerPageVisibilityChecking: true,
+        metrics: {
+            dataCollectorUrl: "//collector.shorte.st/interstitial-page-event",
+            dataCollectorTimeout: "1000",
+            dataCollectorEnabled: Boolean(0),
+            leftLinkId: '#interstitial-left-link',
+            rightLinkId: '#interstitial-right-link'
+        },
+        intermediate: {
+            timeToWait: 5,
+            timerDelay: 0,
+            displayCaptcha: true,
+            adsBlockerPolicy:  2,
+            timerId: 'timer',
+            skipButtonId: 'skip_button',
+            advertisementContainerId: 'intermediate-ad',
+            error : {
+                elementId: 'intermediate_page_error',
+                wrongTargetUrlMessage: "There was an error - a target URL is invalid. The Skip button will redirect you to the previous page or to the shorte.st main page.",
+                generalMessage: "There was an error. Please refresh the page.",
+                captchaErrorMessage: "reCAPTCHA error. Please refresh this page."
+            },
+            captchaDisplayMoment: 'beforeAdvertisementDisplay',
+            captchaElementSelector: '#intermediate_captcha',
+            captchaErrorElementSelector: '#captcha_errormsg',
+            captchaWaitSelector: '#captcha_waitmsg',
+            captchaInfoSelector: '#captcha_infomsg',
+            captchaResponseFieldSelector: '#recaptcha_response_field',
+            destinationUrl: '',
+            waitText: "Please wait {0} seconds",
+            pleaseWaitText: "Please wait"
+        },
+        captcha: {
+            public_key: '6LeT9DEUAAAAAHSbpOoPCW9QnuWUwQ3FOFZh0Uu8'
+        },
+        adSessionNotifier: {
+            callbackUrl: "/shortest-url/end-adsession",
+            sessionId: "76e255f647899e5dad9f71c61d4d1e81c4e730ad",
+            init: true
+        },
+        captchaNotifier: {
+            callbackUrl: "/captcha/callback"
+        },
+        gaTracker: {
+            setters: {
+                gaServiceVersionDimensionSetter: 'setDimension',
+                gaServiceUserIdSetter: 'setUserId',
+                gaDimensionLocked: 'setDimension'
+            },
+            serviceVersionSetter: {
+                version: '2022-02-28.0'
+            },
+            serviceUserIdSetter: {
+                userId: 11543709            },
+            dimensionUserLocked : {
+                userLocked: 0            }
+        },
+        initializeModules: {
+            'gaPageviewTracker': true
+        },
+        popUnderUrl:false,
+        redirectBlocker: {
+          noContentURL: "//shorte.st/no-content"
+        }
+    };
+    </script>
     <script type="text/javascript" src="//static.sh.st/js/packed/interstitial-page.js?2022-02-28.0"></script>
   </body>
 </html>
